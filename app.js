@@ -29,119 +29,164 @@ console.log("hello world")
 // data[2] = false
 // console.log(data.length);
 
-const person = {
-    name:'jithin',
-    age:'30',
-    isTrainer: true,
-    languages:['python','javascript']
-}
-console.log(person)
+// const person = {
+//     name:'jithin',
+//     age:'30',
+//     isTrainer: true,
+//     languages:['python','javascript']
+// }
+// console.log(person)
 
-console.log(Object.keys(person))
-console.log(Object.values(person))
+// console.log(Object.keys(person))
+// console.log(Object.values(person))
 
-person.city = 'kochi'
-person.languages.push('java')
+// person.city = 'kochi'
+// person.languages.push('java')
 
 
-person.address = {
-    streetname:'madiwala',
-    city:'bangalore'
-}
+// person.address = {
+//     streetname:'madiwala',
+//     city:'bangalore'
+// }
 
-person.address.streetname = 'indiranagar'
-console.log(person)
+// person.address.streetname = 'indiranagar'
+// console.log(person)
 
-const todos = [
-    {
-        id: 1,
-        text: 'learning javascript',
-        isComplete:true
-    },
-    {
-        id: 2,
-        text: 'learning arrays',
-        isComplete:false
-    },
-    {
-        id: 3,
-        text: 'creating a small js app',
-        isComplete:true
-    }
-]
+// const todos = [
+//     {
+//         id: 1,
+//         text: 'learning javascript',
+//         isComplete:true
+//     },
+//     {
+//         id: 2,
+//         text: 'learning arrays',
+//         isComplete:false
+//     },
+//     {
+//         id: 3,
+//         text: 'creating a small js app',
+//         isComplete:true
+//     }
+// ]
 
-console.warn("Simple for loop");
-for(let i=0; i<todos.length; i++){
-    console.log(todos[i].text)
-}
+// console.warn("Simple for loop");
+// for(let i=0; i<todos.length; i++){
+//     console.log(todos[i].text)
+// }
 
-console.warn("simple while loop");
-let i =0
-while(i<todos.length){
-    console.log(todos[i].text);
-    i++    
-}
+// console.warn("simple while loop");
+// let i =0
+// while(i<todos.length){
+//     console.log(todos[i].text);
+//     i++    
+// }
 
-console.warn("simple do while loop");
-let j =0
-do{
-    console.log(todos[j].text)
-    j++    
-}while(j<todos.length)
+// console.warn("simple do while loop");
+// let j =0
+// do{
+//     console.log(todos[j].text)
+//     j++    
+// }while(j<todos.length)
 
-console.warn("For of Loop");
-for(let todo of todos){
-    console.log(todo.text);    
-}
+// console.warn("For of Loop");
+// for(let todo of todos){
+//     console.log(todo.text);    
+// }
 
-console.warn("simple Function");
-function printTodoText(todo){
-    console.log(todo.text)
-}
+// console.warn("simple Function");
+// function printTodoText(todo){
+//     console.log(todo.text)
+// }
 
-printTodoText(todos[0])
-console.warn("For each function");
-todos.forEach(printTodoText) 
+// printTodoText(todos[0])
+// console.warn("For each function");
+// todos.forEach(printTodoText) 
 
-function Student(name, age, batch){
-    this.name = name
-    this.age = age
-    this.batch = batch
+// function Student(name, age, batch){
+//     this.name = name
+//     this.age = age
+//     this.batch = batch
 
-    this.birthyear = function(age){
-        return new Date().getFullYear()-this.age
-    }
-}
+//     this.birthyear = function(age){
+//         return new Date().getFullYear()-this.age
+//     }
+// }
 
-const student1 = new Student('jithin', 30, 1912)
-console.log(student1.birthyear());
+// const student1 = new Student('jithin', 30, 1912)
+// console.log(student1.birthyear());
 
-// Conditions
-console.warn("Conditions");
-function printCompletedTodoText(todo) {
-    todo.isComplete ? console.log(todo.text): console.log("Not Completed")
-}
+// // Conditions
+// console.warn("Conditions");
+// function printCompletedTodoText(todo) {
+//     todo.isComplete ? console.log(todo.text): console.log("Not Completed")
+// }
 
-function withIf(todo){
-    if(todo.isComplete){
-        return console.log(todo.text);        
-    }else{
-        return console.log("Not Completed");        
-    }
-}
-todos.forEach(withIf)
+// function withIf(todo){
+//     if(todo.isComplete){
+//         return console.log(todo.text);        
+//     }else{
+//         return console.log("Not Completed");        
+//     }
+// }
+// todos.forEach(withIf)
 
-console.warn("Arrow Functions");
-const printText = (todo) => todo.isComplete ? console.log(todo.text) : console.log("Not Completed");
+// console.warn("Arrow Functions");
+// const printText = (todo) => todo.isComplete ? console.log(todo.text) : console.log("Not Completed");
 
-todos.forEach(printText)
+// todos.forEach(printText)
 
 // currentDate = new Date()
 // console.log(currentDate.getFullYear())
 
 
+// document.getElementsByTagName('h1')[0].innerHTML = "changed this"
+
+function changeHeader(){
+    console.log(`Old Title : ${document.getElementById('title').innerText}`)
+    document.getElementById('title').innerText = "Title is changed"
+    console.log(`New Title : ${document.getElementById('title').innerText}`)
+}
+
+document.getElementById('change').onclick = jqchangeHeader
+
+console.log(document.getElementsByTagName('h1'))
 
 
+
+function jqchangeHeader(){
+    $('h1').html("<h2> this is new title</h2>")
+    document.getElementsByTagName('h1')[0].style.color = 'red'
+}
+
+// fetch('https://jsonplaceholder.typicode.com/todos')
+//     .then((response) => {
+//         return response.json();
+//     })
+//     .then((myJson) => {
+//         console.log(myJson[0].title);
+//     });
+
+
+
+
+function fetchTodos(){
+    fetch('https://jsonplaceholder.typicode.com/todos')
+    .then((response) => {
+        return response.json();
+    })
+    .then((myJson) => {
+        const divString = []
+        myJson.forEach((todo) => divString.push(`<h1>${todo.title}</h1>`))
+        // console.log(divString)
+        const temp = divString.join('')
+        $('#todos').html(temp)
+    });
+}
+
+
+// $('#todobutton').addEventListener('click', fetchTodos)
+document.getElementById("todobutton").addEventListener("click", fetchTodos)
 
 
 
